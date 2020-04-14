@@ -117,22 +117,74 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"main.js":[function(require,module,exports) {
-var string = "\n* {\n    margin: 0px;\n    padding: 0px;\n  }\n  * {\n    box-sizing: border-box;\n  }\n  *::before,\n  *::after {\n    box-sizing: border-box;\n  }\n  .skin {\n    position: relative;\n  }\n  \n  body {\n    background: #ffe600;\n    min-height: 100vh;\n  }\n  \n  .node {\n    border: 10px solid red;\n    border-bottom: none;\n    width: 0px;\n    height: 0px;\n    border-color: black transparent;\n    position: relative;\n    left: 50%;\n    top: 150px;\n    margin-left: -10px;\n    z-index: 10;\n  }\n  \n  @keyframes wave {\n    0% {\n      transform: rotate(0deg);\n    }\n    33% {\n      transform: rotate(8deg);\n    }\n    66% {\n      transform: rotate(-8deg);\n    }\n    100% {\n      transform: rotate(0deg);\n    }\n  }\n  \n  .node:hover {\n    transform-origin: 50% 100%;\n    animation: wave 300ms infinite linear;\n  }\n  \n  .yuan {\n    width: 20px;\n    height: 6px;\n    position: absolute;\n    top: -16px;\n    left: -10px;\n    border-radius: 6px 6px 0 0;\n    background: black;\n  }\n  .eye {\n    border: 2px solid black;\n    width: 64px;\n    height: 64px;\n    position: absolute;\n    top: 100px;\n    left: 50%;\n    margin-left: -32px;\n    border-radius: 50%;\n    background: black;\n  }\n  \n  .eye::before {\n    content: \"\";\n    border: 3px solid #000;\n    display: block;\n    height: 30px;\n    width: 30px;\n    border-radius: 50%;\n    background: white;\n    position: relative;\n    left: 4px;\n    top: 2px;\n  }\n  \n  .eye.left {\n    transform: translateX(-100px);\n  }\n  .eye.right {\n    transform: translateX(100px);\n  }\n  \n  .mouth {\n    width: 180px;\n    height: 180px;\n    position: relative;\n    left: 50%;\n    top: 166px;\n    margin-left: -90px;\n  }\n  \n  .mouth .up .lit {\n    position: absolute;\n    z-index: 2;\n    background: #ffe600;\n    border: 2px solid black;\n    height: 32px;\n    width: 90px;\n  }\n  \n  .mouth .up .left {\n    border-color: transparent transparent black black;\n    border-radius: 0px 0px 0px 88%;\n    transform: rotate(-28deg);\n  }\n  \n  .mouth .up .right {\n    right: 0px;\n    top: 0px;\n    border-color: transparent black black transparent;\n    border-radius: 0px 0px 88% 0px;\n    transform: rotate(28deg);\n  }\n  \n  .mouth .down {\n    height: 166px;\n    width: 100%;\n    position: absolute;\n    top: 10px;\n    overflow: hidden;\n  }\n  .mouth .down .yuan1 {\n    border: black 2px solid;\n    height: 1000px;\n    width: 150px;\n    position: absolute;\n    bottom: 0px;\n    left: 50%;\n    margin-left: -75px;\n    border-radius: 80px/300px;\n    overflow: hidden;\n    background: #9b000a;\n  }\n  .mouth .down .yuan1 .yuan2 {\n    height: 1000px;\n    width: 150px;\n    position: absolute;\n    top: 855px;\n    left: 50%;\n    margin-left: -75px;\n    border-radius: 250px/300px;\n    background: #ff485f;\n  }\n  .face {\n    border: 2px solid black;\n    height: 70px;\n    width: 70px;\n    position: absolute;\n    left: 50%;\n    top: 240px;\n    z-index: 4;\n    border-radius: 50%;\n    background: red;\n    margin-left: -35px;\n  }\n  .face.Left {\n    transform: translateX(-144px);\n  }\n  .face.Right {\n    transform: translateX(144px);\n  }\n  ";
-var n = 1;
-demo.innerHTML = string.substr(0, n);
-var id = setInterval(function () {
-  n += 1;
+})({"C:/Users/mengpeng/AppData/Roaming/npm/node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
 
-  if (n > string.length) {
-    window.clearInterval(id);
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
   }
 
-  demo.innerText = string.substr(0, n);
-  demo2.innerHTML = string.substr(0, n);
-  demo.scrollTop = demo.scrollHeight;
-}, 0);
-},{}],"C:/Users/mengpeng/AppData/Roaming/npm/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+  return bundleURL;
+}
+
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
+
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"C:/Users/mengpeng/AppData/Roaming/npm/node_modules/parcel/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"C:/Users/mengpeng/AppData/Roaming/npm/node_modules/parcel/src/builtins/bundle-url.js"}],"C:/Users/mengpeng/AppData/Roaming/npm/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -336,5 +388,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["C:/Users/mengpeng/AppData/Roaming/npm/node_modules/parcel/src/builtins/hmr-runtime.js","main.js"], null)
-//# sourceMappingURL=/main.1f19ae8e.js.map
+},{}]},{},["C:/Users/mengpeng/AppData/Roaming/npm/node_modules/parcel/src/builtins/hmr-runtime.js"], null)
+//# sourceMappingURL=/index.js.map
