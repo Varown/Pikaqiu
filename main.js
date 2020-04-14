@@ -1,23 +1,22 @@
 const string = `
-* {
+.skin * {
     margin: 0px;
     padding: 0px;
   }
-  * {
+  .skin * {
     box-sizing: border-box;
   }
-  *::before,
-  *::after {
+  .skin *::before,
+  .skin *::after {
     box-sizing: border-box;
   }
   .skin {
     position: relative;
+    background: #ffe600;
+    min-height: 55vh;
   }
   
-  body {
-    background: #ffe600;
-    min-height: 100vh;
-  }
+  
   
   .node {
     border: 10px solid red;
@@ -174,10 +173,11 @@ const string = `
   }
   `;
 let n = 1;
+let time = 100;
 
 demo.innerHTML = string.substr(0, n);
 
-let id = setInterval(() => {
+const run = () => {
   n += 1;
 
   if (n > string.length) {
@@ -187,4 +187,38 @@ let id = setInterval(() => {
   demo.innerText = string.substr(0, n);
   demo2.innerHTML = string.substr(0, n);
   demo.scrollTop = demo.scrollHeight;
-}, 0);
+};
+
+const pause = () => {
+  window.clearInterval(id);
+};
+
+const paly = () => {
+  return setInterval(run, time);
+};
+
+let id = paly();
+
+btnPause.onclick = () => {
+  pause();
+};
+
+btnPlay.onclick = () => {
+  id = paly();
+};
+btnSlow.onclick = () => {
+  pause();
+  time = 300;
+  id = paly();
+};
+
+btnNormal.onclick = () => {
+  pause();
+  time = 50;
+  id = paly();
+};
+btnFast.onclick = () => {
+  pause();
+  time = 0;
+  id = paly();
+};

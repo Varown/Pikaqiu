@@ -7,9 +7,39 @@
   </head>
   <body>
     <div id="demo"></div>
+    <div class="buttons">
+      <button id="btnPause">暂停</button>
+      <button id="btnPlay">播放</button>
+      <button id="btnSlow">慢速</button>
+      <button id="btnNormal">中速</button>
+      <button id="btnFast">快速</button>
+    </div>
+
     <style id="demo2"></style>
-    <style>#demo {
-        position: relative;
+
+    <style>* {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      .buttons {
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        display: flex;
+        flex-direction: column;
+      }
+      .buttons > button {
+        margin-bottom: 10px;
+        margin-right: 10px;
+        margin-top: 10px;
+        padding: 4px 8px;
+      }
+      #demo {
+        position: fixed;
         top: 0px;
         left: 0px;
         width: 100%;
@@ -19,6 +49,7 @@
       #demo::-webkit-scrollbar {
         display: none;
       }
+
       .skin {
         position: fixed;
         bottom: 0px;
