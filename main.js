@@ -200,25 +200,36 @@ const paly = () => {
 let id = paly();
 
 btnPause.onclick = () => {
-  pause();
+  setTimeout(() => {
+    pause();
+  }, 0);
 };
 
 btnPlay.onclick = () => {
-  id = paly();
+  setTimeout(() => {
+    pause();
+    id = paly();
+  }, 0);
 };
 btnSlow.onclick = () => {
-  pause();
-  time = 300;
-  id = paly();
+  setTimeout(() => {
+    pause();
+    time = 100;
+    id = paly();
+  }, 0);
 };
 
 btnNormal.onclick = () => {
-  pause();
-  time = 50;
-  id = paly();
+  setTimeout(() => {
+    pause();
+    time = 50;
+    id = paly();
+  }, 0);
 };
 btnFast.onclick = () => {
-  pause();
-  time = 0;
-  id = paly();
+  setTimeout(() => {
+    pause();
+    time = 0;
+    id = paly();
+  }, 0);
 };

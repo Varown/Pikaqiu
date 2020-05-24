@@ -146,29 +146,40 @@ var paly = function paly() {
 var id = paly();
 
 btnPause.onclick = function () {
-  pause();
+  setTimeout(function () {
+    pause();
+  }, 0);
 };
 
 btnPlay.onclick = function () {
-  id = paly();
+  setTimeout(function () {
+    pause();
+    id = paly();
+  }, 0);
 };
 
 btnSlow.onclick = function () {
-  pause();
-  time = 300;
-  id = paly();
+  setTimeout(function () {
+    pause();
+    time = 100;
+    id = paly();
+  }, 0);
 };
 
 btnNormal.onclick = function () {
-  pause();
-  time = 50;
-  id = paly();
+  setTimeout(function () {
+    pause();
+    time = 50;
+    id = paly();
+  }, 0);
 };
 
 btnFast.onclick = function () {
-  pause();
-  time = 0;
-  id = paly();
+  setTimeout(function () {
+    pause();
+    time = 0;
+    id = paly();
+  }, 0);
 };
 },{}],"C:/Users/mengpeng/AppData/Roaming/npm/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -198,7 +209,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57270" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55660" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
