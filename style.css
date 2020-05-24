@@ -125,7 +125,7 @@ body {
 }
 
 .mouth .down {
-  height: 166px;
+  height: 153px;
   width: 100%;
   position: absolute;
   top: 10px;
@@ -147,7 +147,7 @@ body {
   height: 1000px;
   width: 150px;
   position: absolute;
-  top: 855px;
+  top: 866px;
   left: 50%;
   margin-left: -75px;
   border-radius: 250px/300px;
