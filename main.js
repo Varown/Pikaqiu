@@ -222,7 +222,7 @@ btnSlow.onclick = () => {
 btnNormal.onclick = () => {
   setTimeout(() => {
     pause();
-    time = 50;
+    time = 30;
     id = paly();
   }, 0);
 };
